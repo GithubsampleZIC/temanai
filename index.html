@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>てまないShopping｜不動産会社様 提携のご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;background:#f4f7fc;color:#1a2a45;overflow-x:hidden;line-height:1.6}
+
+/* HERO */
+#hero{background-color:#0a1628;background-image:radial-gradient(ellipse at 80% 20%,rgba(26,107,255,.18) 0%,transparent 60%),radial-gradient(ellipse at 10% 80%,rgba(0,201,255,.10) 0%,transparent 50%);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 40px 120px;position:relative;overflow:hidden}
+.hero-inner{max-width:900px;margin:0 auto;width:100%}
+.hero-badge{display:inline-block;border:1px solid rgba(0,201,255,.4);background:rgba(26,107,255,.15);color:#00c9ff;font-size:11px;font-weight:700;letter-spacing:.2em;padding:7px 18px;border-radius:2px;margin-bottom:48px;text-transform:uppercase}
+.hero-h1{font-weight:900;font-size:clamp(38px,6vw,72px);color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
+.hero-h1 .accent{color:#00c9ff;display:block}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,.55);line-height:2;max-width:580px;margin-bottom:56px;font-weight:300}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;background:#1a6bff;color:#fff;font-size:15px;font-weight:700;padding:20px 44px;border-radius:4px;text-decoration:none;letter-spacing:.06em;transition:all .25s}
+.hero-btn:hover{background:#4d8eff;transform:translateY(-3px);box-shadow:0 16px 40px rgba(26,107,255,.45)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* SECTIONS */
+.sec{padding:100px 40px}
+.sec-inner{max-width:900px;margin:0 auto;width:100%}
+.sec-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#1a6bff;margin-bottom:20px}
+.sec-label::before{content:'';display:block;width:28px;height:2px;background:#1a6bff;flex-shrink:0}
+.sec-label.light{color:#00c9ff}.sec-label.light::before{background:#00c9ff}
+.sec-label.gold-c{color:#f0b429}.sec-label.gold-c::before{background:#f0b429}
+.sec-h2{font-weight:900;font-size:clamp(26px,4vw,46px);line-height:1.25;color:#0a1628;margin-bottom:20px;letter-spacing:-.02em}
+.sec-h2.light{color:#fff}
+.sec-desc{font-size:15px;line-height:1.9;color:#4a5a75;max-width:620px}
+.sec-desc.light{color:rgba(255,255,255,.5)}
+
+/* PROBLEM */
+#problem{background-color:#fff}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;background:#e8edf5;border-radius:10px;overflow:hidden}
+.problem-card{background:#f8fafd;padding:44px 32px;transition:background .2s}
+.problem-card:hover{background:#fff}
+.problem-num{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:60px;color:#e0e7f3;line-height:1;margin-bottom:20px}
+.problem-title{font-weight:700;font-size:16px;color:#0a1628;margin-bottom:12px;line-height:1.6}
+.problem-text{font-size:13px;color:#6a7a95;line-height:1.9}
+
+/* SOLUTION */
+#solution{background-color:#0a1628;background-image:radial-gradient(ellipse at 50% 50%,rgba(26,107,255,.1) 0%,transparent 70%)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.value-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:40px 28px;transition:all .3s}
+.value-card:hover{background:rgba(255,255,255,.08);border-color:rgba(26,107,255,.4);transform:translateY(-4px)}
+.value-icon{font-size:36px;display:block;margin-bottom:20px}
+.value-title{font-weight:700;font-size:17px;color:#fff;margin-bottom:14px;line-height:1.5}
+.value-text{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
+
+/* FLOW */
+#flow{background-color:#f4f7fc}
+.flow-list{margin-top:60px;display:flex;flex-direction:column}
+.flow-item{display:grid;grid-template-columns:80px 1fr;gap:32px;padding-bottom:48px;position:relative}
+.flow-item:last-child{padding-bottom:0}
+.flow-item:not(:last-child)::before{content:'';position:absolute;top:80px;left:39px;width:2px;bottom:8px;background:linear-gradient(to bottom,#1a6bff,transparent)}
+.flow-num-wrap{width:80px;height:80px;background:#0a1628;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flow-num{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:30px;color:#fff;line-height:1}
+.flow-body{padding-top:14px}
+.flow-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#1a6bff;margin-bottom:8px}
+.flow-title{font-weight:900;font-size:20px;color:#0a1628;margin-bottom:10px;line-height:1.4}
+.flow-text{font-size:14px;color:#5a6a85;line-height:1.9}
+
+/* MERIT */
+#merit{background-color:#fff}
+.merit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:60px}
+.merit-card{border:1.5px solid #e8edf5;border-radius:10px;padding:40px 36px;transition:all .25s}
+.merit-card:hover{border-color:#1a6bff;box-shadow:0 8px 32px rgba(26,107,255,.08);transform:translateY(-3px)}
+.merit-num{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:48px;color:#e8edf5;line-height:1;margin-bottom:12px}
+.merit-title{font-weight:700;font-size:17px;color:#0a1628;margin-bottom:12px;line-height:1.6}
+.merit-text{font-size:13px;color:#6a7a95;line-height:1.9}
+
+/* KICKBACK */
+#kickback{background-color:#0a1628;background-image:radial-gradient(ellipse at 20% 50%,rgba(26,107,255,.08) 0%,transparent 60%)}
+.kb-box{margin-top:60px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
+.kb-head{background:rgba(26,107,255,.15);border-bottom:1px solid rgba(255,255,255,.08);padding:24px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.kb-head-title{font-weight:900;font-size:18px;color:#fff}
+.kb-badge{display:inline-block;background:#f0b429;color:#0a1628;font-size:10px;font-weight:900;letter-spacing:.1em;padding:4px 14px;border-radius:2px;text-transform:uppercase}
+.kb-rules{padding:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.kb-rule{display:flex;gap:18px;align-items:flex-start}
+.kb-icon{width:46px;height:46px;background:rgba(26,107,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.kb-rule-title{font-weight:700;font-size:14px;color:#fff;margin-bottom:8px}
+.kb-rule-text{font-size:13px;color:rgba(255,255,255,.42);line-height:1.9}
+.kb-hl{color:#f0b429;font-weight:700}
+
+/* SIMULATION */
+#simulation{background-color:#f4f7fc}
+.sim-table-wrap{margin-top:60px;border-radius:10px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.07)}
+.sim-table{width:100%;border-collapse:collapse;background:#fff}
+.sim-table thead tr{background:#0a1628}
+.sim-table thead th{padding:18px 24px;text-align:left;font-size:11px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.12em;text-transform:uppercase}
+.sim-table tbody tr{border-bottom:1px solid #e8edf5}
+.sim-table tbody tr:last-child{border-bottom:none}
+.sim-table tbody tr:hover{background:#f8fafd}
+.sim-table tbody td{padding:18px 24px;font-size:14px;color:#1a2a45}
+.sim-table .hl-row{background:rgba(26,107,255,.04)}
+.sim-table .hl-row td{font-weight:700}
+.sim-cards{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:10px;overflow:hidden;background:#0a1628}
+.sim-card{background:#0a1628;padding:36px 24px;text-align:center}
+.sim-card-label{font-size:11px;font-weight:700;color:rgba(255,255,255,.38);letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+.sim-card-value{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:44px;color:#fff;line-height:1;margin-bottom:8px}
+.sim-card-value.gold{color:#f0b429}
+.sim-card-note{font-size:12px;color:rgba(255,255,255,.28)}
+.sim-note{text-align:center;margin-top:16px;font-size:12px;color:#8a9ab5}
+
+/* STEPS */
+#steps{background-color:#fff}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;border-radius:10px;overflow:hidden;background:#0a1628}
+.step-card{background:#102040;padding:48px 32px;position:relative;transition:background .25s}
+.step-card:hover{background:#1a3560}
+.step-bg-num{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:80px;color:rgba(255,255,255,.05);line-height:1;position:absolute;top:16px;right:20px;pointer-events:none}
+.step-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#00c9ff;margin-bottom:18px}
+.step-title{font-weight:900;font-size:20px;color:#fff;margin-bottom:16px;line-height:1.4}
+.step-text{font-size:13px;color:rgba(255,255,255,.38);line-height:1.9}
+
+/* FAQ */
+#faq{background-color:#f4f7fc}
+.faq-list{margin-top:60px;border:1.5px solid #e8edf5;border-radius:10px;overflow:hidden;background:#fff}
+.faq-item{border-bottom:1px solid #e8edf5}
+.faq-item:last-child{border-bottom:none}
+.faq-q{padding:28px 36px;font-weight:700;font-size:15px;color:#0a1628;display:flex;align-items:flex-start;gap:16px;line-height:1.6}
+.faq-q-mark{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:22px;color:#1a6bff;flex-shrink:0;line-height:1.3}
+.faq-a{padding:0 36px 28px 70px;font-size:14px;color:#5a6a85;line-height:1.9}
+
+/* CTA */
+#contact{background-color:#0a1628;background-image:radial-gradient(ellipse at 50% 50%,rgba(26,107,255,.14) 0%,transparent 65%);padding:120px 40px;text-align:center}
+.cta-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#00c9ff;margin-bottom:28px}
+.cta-h2{font-weight:900;font-size:clamp(28px,4.5vw,54px);color:#fff;line-height:1.25;margin-bottom:20px;letter-spacing:-.02em}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.4);margin-bottom:56px;font-weight:300;line-height:1.9}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-main{display:inline-flex;align-items:center;gap:10px;background:#1a6bff;color:#fff;font-size:15px;font-weight:700;padding:20px 48px;border-radius:4px;text-decoration:none;letter-spacing:.05em;transition:all .25s}
+.btn-main:hover{background:#4d8eff;transform:translateY(-3px);box-shadow:0 14px 40px rgba(26,107,255,.45)}
+.btn-sub{display:inline-flex;align-items:center;gap:10px;background:transparent;color:rgba(255,255,255,.6);font-size:15px;font-weight:500;padding:20px 40px;border-radius:4px;text-decoration:none;border:1px solid rgba(255,255,255,.18);letter-spacing:.05em;transition:all .25s}
+.btn-sub:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35);color:#fff}
+
+/* FOOTER */
+footer{background:#060e1a;padding:40px;text-align:center}
+.footer-name{font-weight:900;font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:.05em}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.22);letter-spacing:.05em}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .sec{padding:72px 24px}
+  #hero{padding:60px 24px 100px}
+  #contact{padding:80px 24px}
+  footer{padding:32px 24px}
+  .problem-grid,.value-grid,.steps-grid,.sim-cards{grid-template-columns:1fr}
+  .merit-grid{grid-template-columns:1fr}
+  .kb-rules{grid-template-columns:1fr;padding:28px 24px}
+  .flow-item{grid-template-columns:60px 1fr;gap:20px}
+  .flow-num-wrap{width:60px;height:60px}
+  .flow-num{font-size:22px}
+  .flow-item:not(:last-child)::before{left:29px;top:60px}
+  .sim-table thead th,.sim-table tbody td{padding:14px 16px;font-size:12px}
+  .faq-q{padding:20px 24px;font-size:14px}
+  .faq-a{padding:0 24px 20px 56px}
+}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">不動産会社様 戦略提携のご提案</div>
+    <h1 class="hero-h1">入居後も、<br>顧客に選ばれ続ける<br><span class="accent">不動産会社へ。</span></h1>
+    <p class="hero-sub">引越し顧客の家具・家電購入を、てまないShoppingが丸ごと代行。<br>御社は紹介するだけ。顧客満足が上がり、継続的な収益も生まれます。</p>
+    <a href="#contact" class="hero-btn">提携について相談する &rarr;</a>
+  </div>
+  <div class="scroll-indicator"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<section id="problem" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade">Problem</div>
+    <h2 class="sec-h2 fade">不動産会社が抱える<br>3つの課題</h2>
+    <p class="sec-desc fade">契約後に顧客接点が途切れる。他社との差別化が難しい。顧客満足を上げたいが、コストはかけられない。</p>
+    <div class="problem-grid">
+      <div class="problem-card fade">
+        <div class="problem-num">01</div>
+        <div class="problem-title">契約後の<br>顧客接点がゼロになる</div>
+        <p class="problem-text">内見・契約が終わると顧客との関係が途切れる。リピートや紹介につながるきっかけがない。</p>
+      </div>
+      <div class="problem-card fade">
+        <div class="problem-num">02</div>
+        <div class="problem-title">競合との<br>差別化が難しい</div>
+        <p class="problem-text">物件・立地・価格以外で差別化する手段が限られている。顧客が「この会社で決めた」と感じる体験が作れない。</p>
+      </div>
+      <div class="problem-card fade">
+        <div class="problem-num">03</div>
+        <div class="problem-title">コストをかけずに<br>顧客満足を上げたい</div>
+        <p class="problem-text">新しいサービスを導入するには費用・手間・リスクがかかる。手軽に始められる付加価値が見つからない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solution" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label light fade">Solution</div>
+    <h2 class="sec-h2 light fade">てまないShoppingが、<br>3つ全てを解決します。</h2>
+    <p class="sec-desc light fade">引越し顧客の家具・家電購入を代行するサービスを、御社の「特典」として顧客に提供するだけでいい。</p>
+    <div class="value-grid">
+      <div class="value-card fade">
+        <span class="value-icon">🏠</span>
+        <div class="value-title">契約後も顧客に<br>「選ばれ続ける」体験</div>
+        <p class="value-text">新生活の家具・家電をお得に揃えられた体験は、そのまま御社への感謝に変わります。口コミ・紹介が自然に生まれます。</p>
+      </div>
+      <div class="value-card fade">
+        <span class="value-icon">⚡</span>
+        <div class="value-title">御社の負担はゼロ。<br>紹介するだけ。</div>
+        <p class="value-text">案内資料をお渡しするだけでOK。購入代行の手続きは全て当社が担います。御社の業務は一切増えません。</p>
+      </div>
+      <div class="value-card fade">
+        <span class="value-icon">💰</span>
+        <div class="value-title">顧客が利用するたびに<br>御社に収益が生まれる</div>
+        <p class="value-text">紹介経由で発生した利益の一部を、成果報酬として継続的にお支払い。初期費用・固定費用は一切不要です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade">How It Works</div>
+    <h2 class="sec-h2 fade">提携の流れ</h2>
+    <p class="sec-desc fade">御社がすることは、たった一つ。顧客に案内を渡すだけです。</p>
+    <div class="flow-list">
+      <div class="flow-item fade">
+        <div class="flow-num-wrap"><span class="flow-num">01</span></div>
+        <div class="flow-body">
+          <span class="flow-tag">御社のアクション</span>
+          <div class="flow-title">賃貸契約決定の顧客に案内を渡す</div>
+          <p class="flow-text">契約完了時に、てまないShoppingのご案内（チラシ or QRコード）をお渡しいただくだけ。「家具家電をお得に揃えられるサービスです」の一言で完了します。</p>
+        </div>
+      </div>
+      <div class="flow-item fade">
+        <div class="flow-num-wrap"><span class="flow-num">02</span></div>
+        <div class="flow-body">
+          <span class="flow-tag">てまないのアクション</span>
+          <div class="flow-title">顧客の希望をヒアリング・最安値でリサーチ</div>
+          <p class="flow-text">顧客からの連絡を受け取り、必要な家具・家電をもとに最安値で仕入れ先を特定。クーポン・ポイント・値引き交渉を組み合わせ、市場価格より安い見積もりを提示します。</p>
+        </div>
+      </div>
+      <div class="flow-item fade">
+        <div class="flow-num-wrap"><span class="flow-num">03</span></div>
+        <div class="flow-body">
+          <span class="flow-tag">てまないのアクション</span>
+          <div class="flow-title">仕入れ・検品・顧客へ納品</div>
+          <p class="flow-text">顧客が見積もりに同意後、当社が仕入れ・検品・配送を手配。不良品対応・返品交換も全て当社が担当します。顧客は待つだけで新生活の準備が整います。</p>
+        </div>
+      </div>
+      <div class="flow-item fade">
+        <div class="flow-num-wrap"><span class="flow-num">04</span></div>
+        <div class="flow-body">
+          <span class="flow-tag">御社へ</span>
+          <div class="flow-title">四半期ごとに成果報酬をお支払い</div>
+          <p class="flow-text">御社経由の取引から発生した利益の一定割合を、3ヶ月ごとにまとめてお振り込みします。顧客が再利用するたびに、継続的に報酬が発生し続けます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="merit" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade">Benefits</div>
+    <h2 class="sec-h2 fade">御社が得られる4つの価値</h2>
+    <div class="merit-grid">
+      <div class="merit-card fade">
+        <div class="merit-num">01</div>
+        <div class="merit-title">「この不動産を使ってよかった」<br>という口コミが生まれる</div>
+        <p class="merit-text">家具家電が安く揃った体験は、顧客の新生活への満足に直結します。自然発生的な口コミ・紹介が増え、成約率の底上げにつながります。</p>
+      </div>
+      <div class="merit-card fade">
+        <div class="merit-num">02</div>
+        <div class="merit-title">他社にはない<br>強力な差別化フックになる</div>
+        <p class="merit-text">「契約するとお得な購入代行サービスがついてくる」は、物件・家賃以外の明確な選択理由になります。迷っている顧客の後押しになります。</p>
+      </div>
+      <div class="merit-card fade">
+        <div class="merit-num">03</div>
+        <div class="merit-title">初期費用ゼロ・<br>固定費用ゼロで導入できる</div>
+        <p class="merit-text">導入コスト・月額費用は一切発生しません。顧客が実際に利用した案件分のみ、成果報酬として受け取る完全な実績ベースの仕組みです。</p>
+      </div>
+      <div class="merit-card fade">
+        <div class="merit-num">04</div>
+        <div class="merit-title">顧客が再利用するたびに<br>収益が積み上がる</div>
+        <p class="merit-text">一度ご紹介した顧客がてまないを再利用するたびに、継続的に報酬が発生します。1度の紹介が、長期的な収益源になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kickback" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label gold-c fade">Revenue Share</div>
+    <h2 class="sec-h2 light fade">成果報酬の設計</h2>
+    <p class="sec-desc light fade">御社に費用リスクはゼロ。顧客が利用するほど、御社の収益も増える仕組みです。</p>
+    <div class="kb-box fade">
+      <div class="kb-head">
+        <div class="kb-head-title">パートナー報酬プログラム</div>
+        <span class="kb-badge">成果報酬型</span>
+      </div>
+      <div class="kb-rules">
+        <div class="kb-rule">
+          <div class="kb-icon">📊</div>
+          <div>
+            <div class="kb-rule-title">報酬率</div>
+            <p class="kb-rule-text">御社経由の案件から発生した利益の<br><span class="kb-hl">初期10社：利益の15%</span><br><span class="kb-hl">11社目以降：利益の10%</span></p>
+          </div>
+        </div>
+        <div class="kb-rule">
+          <div class="kb-icon">📅</div>
+          <div>
+            <div class="kb-rule-title">支払いサイクル</div>
+            <p class="kb-rule-text">四半期ごと（3ヶ月ごと）に一括お支払い。<br><span class="kb-hl">月次の細かい精算は不要。</span><br>管理コストがかかりません。</p>
+          </div>
+        </div>
+        <div class="kb-rule">
+          <div class="kb-icon">🔄</div>
+          <div>
+            <div class="kb-rule-title">継続報酬</div>
+            <p class="kb-rule-text">一度ご紹介した顧客が再利用するたびに、<br><span class="kb-hl">同条件で報酬が継続発生。</span><br>1件の紹介が長期収益になります。</p>
+          </div>
+        </div>
+        <div class="kb-rule">
+          <div class="kb-icon">🛡️</div>
+          <div>
+            <div class="kb-rule-title">リスクゼロ設計</div>
+            <p class="kb-rule-text">利益が発生しない案件は報酬なし。<br><span class="kb-hl">御社への費用請求は一切ありません。</span><br>導入のリスクはゼロです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="simulation" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade">Simulation</div>
+    <h2 class="sec-h2 fade">収益シミュレーション</h2>
+    <p class="sec-desc fade">月間契約数に応じた、御社への報酬額の目安です。</p>
+    <div class="sim-table-wrap fade">
+      <table class="sim-table">
+        <thead><tr><th>前提条件</th><th>数値</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>月間賃貸成約件数（中規模不動産会社）</td><td>50〜200件/月</td><td>業界標準値</td></tr>
+          <tr><td>うち家具家電を新規購入する割合</td><td>約50〜60%</td><td>引越し調査データより</td></tr>
+          <tr><td>てまない利用率（試験導入初期）</td><td>10〜20%</td><td>保守的試算</td></tr>
+          <tr><td>顧客1件あたり平均購入金額</td><td>約25万円</td><td>一人暮らし〜カップル平均</td></tr>
+          <tr><td>てまない平均利益率</td><td>8〜12%</td><td>実績ベース</td></tr>
+          <tr class="hl-row"><td>顧客1件あたり御社への報酬（15%）</td><td>約 ¥3,000〜4,500</td><td>利益¥20,000〜30,000の15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sim-cards fade">
+      <div class="sim-card">
+        <div class="sim-card-label">月10件利用時</div>
+        <div class="sim-card-value">¥3〜4.5万</div>
+        <div class="sim-card-note">四半期：¥9〜13.5万</div>
+      </div>
+      <div class="sim-card">
+        <div class="sim-card-label">月30件利用時</div>
+        <div class="sim-card-value gold">¥9〜13万</div>
+        <div class="sim-card-note">四半期：¥27〜40万</div>
+      </div>
+      <div class="sim-card">
+        <div class="sim-card-label">月50件利用時</div>
+        <div class="sim-card-value">¥15〜22万</div>
+        <div class="sim-card-note">四半期：¥45〜66万</div>
+      </div>
+    </div>
+    <p class="sim-note">※上記はあくまで試算です。利用状況・商品内容により変動します。</p>
+  </div>
+</section>
+
+<section id="steps" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade">Getting Started</div>
+    <h2 class="sec-h2 fade">導入の3ステップ</h2>
+    <p class="sec-desc fade">最短1週間でスタートできます。</p>
+    <div class="steps-grid fade">
+      <div class="step-card">
+        <div class="step-bg-num">1</div>
+        <span class="step-tag">Week 1</span>
+        <div class="step-title">ご相談・<br>提携契約</div>
+        <p class="step-text">まずは30分のオンライン or 対面でのご説明。ご納得いただけたら提携契約を締結。費用は一切かかりません。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-bg-num">2</div>
+        <span class="step-tag">Week 1〜2</span>
+        <div class="step-title">案内ツールの<br>お渡し</div>
+        <p class="step-text">顧客にお渡しするご案内チラシ・QRコードをご提供。スタッフへの説明も当社が対応します。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-bg-num">3</div>
+        <span class="step-tag">運用開始</span>
+        <div class="step-title">紹介するだけで<br>収益が積み上がる</div>
+        <p class="step-text">あとは顧客へ案内を渡すだけ。全ての対応はてまないが担当します。四半期ごとに報酬を受け取ってください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade">FAQ</div>
+    <h2 class="sec-h2 fade">よくある質問</h2>
+    <div class="faq-list fade">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-mark">Q</span>顧客への追加費用は発生しますか？</div>
+        <div class="faq-a">一切発生しません。顧客は通常の買い物と同じ感覚で、より安く家具家電を購入できます。御社からの「お得な特典」として自然にご提案いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-mark">Q</span>導入コスト・月額費用はかかりますか？</div>
+        <div class="faq-a">初期費用・月額費用は一切かかりません。完全成果報酬型のため、顧客が実際に利用した場合のみ当社に収益が発生します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-mark">Q</span>スタッフへの説明・研修は必要ですか？</div>
+        <div class="faq-a">不要です。「QRコードを渡してください」の一言で完了します。必要であれば当社が直接スタッフへの簡単な説明を行います。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-mark">Q</span>品質トラブルが起きた場合の対応は？</div>
+        <div class="faq-a">不良品・返品・交換対応は全て当社が担います。御社やお客様の手を煩わせることはありません。検品後に納品する体制を整えています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-mark">Q</span>小さな買い物（1〜2点だけ）でも対応できますか？</div>
+        <div class="faq-a">はい、冷蔵庫1台・洗濯機だけ、といった単品からご対応します。顧客のニーズに合わせて柔軟に対応できるのが強みです。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <span class="cta-badge">Contact</span>
+  <h2 class="cta-h2">まず、30分だけ<br>話を聞いてください。</h2>
+  <p class="cta-sub">費用なし・リスクなし。<br>御社の状況に合わせた提携プランをご提案します。</p>
+  <div class="cta-btns">
+    <a href="mailto:info@temanai-shopping.com" class="btn-main">提携のご相談はこちら &rarr;</a>
+    <a href="#" class="btn-sub">資料をダウンロード</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">てまない Shopping</div>
+  <p class="footer-copy">&copy; 2025 Temanai Shopping. All rights reserved. ｜ 事業責任者：鈴木逢也</p>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.fade');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){
+      if(e.isIntersecting){
+        setTimeout(function(){e.target.classList.add('in')},i*70);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
